@@ -6,12 +6,13 @@ O projeto spring boot á seguir foi feito por:
 	- Deyvid Santos da Silva
 
 Importante:
-- XAMPP
+- XAMPP (Apache e MySQL)
 - IDE do tipo Java com suporte para a instalação
 
 Recursos:
  - Maven 
  - Spring Boot 4
+ 
  
 Dependências (pom.xml)
 - Spring Web
@@ -19,6 +20,7 @@ Dependências (pom.xml)
 - Spring Validation
 - Spring Data JPA
 - LibrePDF/OpenPDF 
+- MySQL
  
 > A IDE **Eclipse for Enterprise Java and Web Developers 2021-03** foi utilizada. 
 
@@ -27,7 +29,7 @@ Dependências (pom.xml)
  - XAMPP (Para teste embutido em servidor)
  
 Guia de Instalação:
-1. Crie um banco de dados chamado agendadeyvid; 
+1. Crie um banco de dados no MySQL chamado agendadeyvid; 
 `CREATE DATABASE agendadeyvid;`
 2. Após vá em uma IDE que tenha suporte à Spring Tools 4 e Maven:
  2.1. Faça download do ZIP na opção Code e depois extraia a pasta
