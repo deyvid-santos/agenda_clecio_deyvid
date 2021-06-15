@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="modelo/template">
+<meta charset="UTF-8">
+</head>
+<body>
+
+<style>
+body {
+    zoom: 0.85; /* Other non-webkit browsers */
+    zoom: 85%; /* Webkit browsers */
+}
+
+</style>
+	<br>
+	<div class="alert alert-success alert-dismissable" th:if="${success != null}">
+ <label th:text="${success}"></label>
+ <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+
+<div class="alert alert-danger alert-dismissable" th:if="${error != null}">
+ <label th:text="${error}"></label>
+ <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+
+<div class="alert alert-warning alert-dismissable" th:if="${warning != null}">
+ <label th:text="${warning}"></label>
+ <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+
+<div class="alert alert-info alert-dismissable" th:if="${info != null}">
+ <label th:text="${info}"></label>
+ <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+	
+
+	<h2 th:text="${titulo}"></h2>
+	<br>
+	<a class="btn btn-primary btn-sm" th:href="@{/pessoa/criar}"
+		title="Realize um novo cadastro">Novo Cadastro</a>
+	<!-- Botão gerar pdf -->
+		<a class="float-left" th:href="@{/pessoa/(format=pdf)}"  
+			title="Gerar PDF" target="_blank">
+			<img class="img-responsive center-box" th:src="@{/bootstrap/img/pdf.png}" width="32" height="32">
+			
+		</a>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th>ID</th>
+				<th>CPF</th>
+				<th>Nome</th>
+				<th>Sobrenome</th>
+				<th>Sexo</th>
+				<th>Telefone 1</th>
+				<th>Telefone 2</th>
+				<th>E-mail</th>
+				<th>Estado</th>
+				<th>Cidade</th>
+				<th>Endereço</th>
+				<th>Sangue</th>
+				<th>Sexo</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ps:${pessoa}">
+				<th scope="row" th:text="${ps.idpessoa}"></th>
+				<td th:text="${ps.cpf}">
+				<td th:text="${ps.nome}"></td>
+				<td th:text="${ps.sobrenome}"></td>
+				<td th:text="${ps.sexo.sexo}"></td>
+				<td th:text="${ps.telefone1}"></td>
+				<td th:text="${ps.telefone2}"></td>
+				<td th:text="${ps.email}"></td>
+				<td th:text="${ps.estado.estado}"></td>
+				<td th:text="${ps.cidade}"></td>
+				<td th:text="${ps.endereco}"></td>
+				<td th:text="${ps.sangue.sangue}"></td>
+				<td th:text="${ps.sexo.sexo}"></td>
+				<td><a class="btn btn-success btn-sm"
+					th:href="@{/pessoa/edit/} + ${ps.idpessoa}" th:text="'Editar'"
+					title="Editar o cadastro"></a></td>
+				<td><a class="btn btn-danger btn-sm"
+					th:href="@{/pessoa/delete/} + ${ps.idpessoa}" th:text="'Deletar'"
+					title="Deletar o cadastro" onclick="return confirm('Tem certeza que você quer apagar?')" ></a></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<footer th:replace="modelo/template :: footer"></footer>
+
+</body>
+</html>

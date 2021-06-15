@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="modelo/template">
+<meta charset="UTF-8">
+</head>
+<body>
+
+	<div class="container">
+		<div class="bg-light">
+			<div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+			<div class="card-body">
+				<form th:action="@{/pessoa/save}" th:object="${pessoa}" method="post">
+					<br>
+					<!-- CPF -->
+					<div class="form-group row">
+						<label class="col-md-2" for="cpf">CPF:</label> 
+						<input type="hidden" th:field="*{idpessoa}">
+						<input
+							type="text" th:field="*{cpf}"
+							class="form-control form-control-sm col-md-6" id="cpf"
+							placeholder="XXX.XXX.XXX-XX"> 
+							<small class="font-text text-danger" th:if="${#fields.hasErrors('cpf')}"
+							th:errors="*{cpf}"></small>
+					</div>
+					<!-- Nome -->
+					<div class="form-group row">
+						<label class="col-md-2" for="nome">Nome:</label> <input
+							type="text" th:field="*{nome}"
+							class="form-control form-control-sm col-md-6" id="nome"
+							placeholder="Nome"> 
+							<small class="font-text text-danger" th:if="${#fields.hasErrors('nome')}"
+							th:errors="*{nome}"></small>
+					</div>
+					<!-- Sobrenome -->
+					<div class="form-group row">
+						<label class="col-md-2" for="sobrenome">Sobrenome:</label> <input
+							type="text" th:field="*{sobrenome}"
+							class="form-control form-control-sm col-md-6" id="sobrenome"
+							placeholder="Sobrenome">
+						<small class="font-text text-danger" th:if="${#fields.hasErrors('sobrenome')}"
+							th:errors="*{sobrenome}"></small>
+					</div>
+					<!-- Telefone 1-->
+						<div class="form-group row">
+						<label class="col-md-2" for="telefone1">Telefone 1:</label> <input
+							type="text" th:field="*{telefone1}"
+							class="form-control form-control-sm col-md-6" id="telefone1"
+							placeholder="(XX)XXXXX-XXXX">
+							<small class="font-text text-danger" th:if="${#fields.hasErrors('telefone1')}"
+							th:errors="*{telefone1}"></small>
+					</div>
+					<!-- Telefone 2 -->
+						<div class="form-group row">
+						<label class="col-md-2" for="telefone2">Telefone 2:</label> <input
+							type="text" th:field="*{telefone2}"
+							class="form-control form-control-sm col-md-6" id="telefone2"
+							placeholder="(XX)XXXXX-XXXX">
+							<small class="font-text text-danger" th:if="${#fields.hasErrors('telefone2')}"
+							th:errors="*{telefone2}"></small>
+					</div>
+					<!-- Email -->
+						<div class="form-group row">
+						<label class="col-md-2" for="email">Email:</label> <input
+							type="text" th:field="*{email}"
+							class="form-control form-control-sm col-md-6" id="email"
+							placeholder="exemplo@email.com">
+							<small class="font-text text-danger" th:if="${#fields.hasErrors('email')}"
+							th:errors="*{email}"></small>
+					</div>
+			<!-- Estado -->
+			<div class="form-group row">
+				<label class="col-md-2" for=estado>Estado:</label> <select
+					th:field="*{estado}" class="form-control form-control-sm col-md-3"
+					id="estado">
+					<option th:each="estado:${estado}" th:value="${estado.idestado}"
+						th:text="${estado.estado}" />
+				</select>
+			</div>
+
+			<!-- Cidade -->
+				<div class="form-group row">
+					<label class="col-md-2" for="cidade">Cidade:</label> <input
+							type="text" th:field="*{cidade}"
+							class="form-control form-control-sm col-md-6" id="cidade"
+							placeholder="Cidade">
+							<small class="font-text text-danger" th:if="${#fields.hasErrors('cidade')}"
+							th:errors="*{cidade}"></small>
+					</div>
+			<!-- Endereço -->
+			<div class="form-group row">
+				<label class="col-md-2" for="endereco">Endereço:</label> <input
+				    th:field="*{endereco}"
+					type="text" class="form-control form-control-sm col-md-6"
+					id="endereco" placeholder="Endereço">
+					<small class="font-text text-danger" th:if="${#fields.hasErrors('endereco')}"
+							th:errors="*{endereco}"></small>
+			</div>
+			
+			<!-- Sangue -->
+			<div class="form-group row">
+				<label class="col-md-2" for=estado>Sangue:</label> <select
+					th:field="*{sangue}" class="form-control form-control-sm col-md-3"
+					id="sangue">
+					<option th:each="sangue:${sangue}" th:value="${sangue.idsangue}"
+						th:text="${sangue.sangue}" />
+				</select>
+			</div>
+			<!-- Sexo -->
+			<div class="form-group row">
+				<label class="col-md-2" for=estado>Sexo:</label> <select
+					th:field="*{sexo}" class="form-control form-control-sm col-md-3"
+					id="sexo">
+					<option th:each="sexo:${sexo}" th:value="${sexo.idsexo}"
+						th:text="${sexo.sexo}" />
+				</select>
+			</div>
+			<!-- Botão de Cadastrar -->
+			<div class="card-footer bg-dark">
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+    
+	
+<br>
+	<footer th:replace="modelo/template :: footer"></footer>
+
+</body>
+</html>

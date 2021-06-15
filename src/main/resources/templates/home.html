@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="modelo/template">
+<meta charset="UTF-8">
+</head>
+<body>
+
+<!-- CSS -->
+<style>
+body {
+  background-image:
+  url("https://images.unsplash.com/photo-1544030622-5c2c58b1c463?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWdlbmRhfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
+}
+
+h1 {
+  color: white;
+  font-family: helvetica;
+  font-weight: bold;
+}
+
+h3 {
+	color:white;
+	font-family: helvetica;
+	font-weight: bold;
+}
+</style>
+
+	<div class="container">
+		<br>
+		<h1 style="text-align:center">Olá! Seja bem-vindo!</h1>
+		<h3 style="text-align:center">Utilize a nossa barra de navegação para ir aonde quiser!</h3>
+	</div>
+	
+	<br>
+	<footer th:replace="modelo/template :: footer"></footer>
+
+</body>
+</html>
